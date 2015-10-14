@@ -3,16 +3,25 @@
 #define S(x) scanf("%d",&x)
 #define nl '\n'
 using namespace std;
+int abs(int n)
+{
+    return n<0?n*-1:n;
+}
 void check(int a[], int n, int x)
 {
-    bool Hash[1000000]={0}, here=1;
+    bool Hash[2][1000000]={{0}}, here=1, sa, srem;
+    int aa, rem, arem;
     for(int i=0; i<n; i++){
-        int rem = x - a[i];
-        if(Hash[rem] && rem >= 0){
+        aa = abs(a[i]);
+        sa = a[i]<0;
+        rem = x - a[i];
+        arem = abs(rem);
+        srem = rem<0;
+        if(Hash[srem][arem]){
             here=0;
-            cout << "   " << rem << " + " << a[i] << " = " << x << nl;
+            cout << "   (" << rem << ") + (" << a[i] << ") = " << x << nl;
         }
-        Hash[a[i]] = 1;
+        Hash[sa][aa] = 1;
     }
     if(here) cout << "Oops :p not found!" <<nl;
 }
