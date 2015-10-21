@@ -1,12 +1,9 @@
-#include<iostream>
-#include<cstdio>
+#include<bits/stdc++.h>
 #define S(x) scanf("%d",&x)
 #define nl '\n'
+#define abs(n) (n)<0?(n)*-1:(n)
 using namespace std;
-int abs(int n)
-{
-    return n<0?n*-1:n;
-}
+
 void check(int a[], int n, int x)
 {
     bool Hash[2][1000000]={{0}}, here=1, sa, srem;
